@@ -1,3 +1,7 @@
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
 const revealElements =
     document.querySelectorAll(".reveal");
 
@@ -23,14 +27,19 @@ const observer =
 
         },
         {
-            threshold: .12
+            threshold: 0.12
         }
     );
+
 
 revealElements.forEach(element => {
     observer.observe(element);
 });
 
+
+/* =========================================================
+   YOUTUBE ID
+========================================================= */
 
 function getYouTubeId(url) {
 
@@ -48,12 +57,18 @@ function getYouTubeId(url) {
 }
 
 
+/* =========================================================
+   LOAD PROJECTS
+========================================================= */
+
 async function loadProjects() {
 
     const grid =
-        document.getElementById(
-            "projectGrid"
-        );
+        document.getElementById("projectGrid");
+
+    if (!grid) {
+        return;
+    }
 
     try {
 
@@ -77,51 +92,47 @@ async function loadProjects() {
 
         grid.innerHTML = "";
 
+
         projects.forEach(
             (project, index) => {
 
                 const article =
-                    document.createElement(
-                        "article"
-                    );
+                    document.createElement("article");
 
                 article.className =
                     "project";
 
+
                 const preview =
-                    document.createElement(
-                        "div"
-                    );
+                    document.createElement("div");
 
                 preview.className =
                     "project-preview";
 
+
                 const art =
-                    document.createElement(
-                        "div"
-                    );
+                    document.createElement("div");
 
                 art.className =
                     "project-art";
 
+
                 const artGrid =
-                    document.createElement(
-                        "div"
-                    );
+                    document.createElement("div");
 
                 artGrid.className =
                     "art-grid";
 
+
                 const artText =
-                    document.createElement(
-                        "div"
-                    );
+                    document.createElement("div");
 
                 artText.className =
                     "art-text";
 
                 artText.textContent =
                     "MC";
+
 
                 art.appendChild(
                     artGrid
@@ -130,6 +141,7 @@ async function loadProjects() {
                 art.appendChild(
                     artText
                 );
+
 
                 if (project.image) {
 
@@ -143,6 +155,7 @@ async function loadProjects() {
                         "center";
 
                 }
+
 
                 if (project.video) {
 
@@ -160,27 +173,25 @@ async function loadProjects() {
 
                 }
 
+
                 preview.appendChild(
                     art
                 );
 
+
                 const info =
-                    document.createElement(
-                        "div"
-                    );
+                    document.createElement("div");
 
                 info.className =
                     "project-info";
 
+
                 const left =
-                    document.createElement(
-                        "div"
-                    );
+                    document.createElement("div");
+
 
                 const number =
-                    document.createElement(
-                        "div"
-                    );
+                    document.createElement("div");
 
                 number.className =
                     "project-index";
@@ -189,10 +200,9 @@ async function loadProjects() {
                     String(index + 1)
                         .padStart(3, "0");
 
+
                 const title =
-                    document.createElement(
-                        "div"
-                    );
+                    document.createElement("div");
 
                 title.className =
                     "project-name";
@@ -200,6 +210,7 @@ async function loadProjects() {
                 title.textContent =
                     project.title ||
                     "Untitled";
+
 
                 left.appendChild(
                     number
@@ -209,10 +220,9 @@ async function loadProjects() {
                     title
                 );
 
+
                 const description =
-                    document.createElement(
-                        "div"
-                    );
+                    document.createElement("div");
 
                 description.className =
                     "project-type";
@@ -220,6 +230,7 @@ async function loadProjects() {
                 description.textContent =
                     project.description ||
                     "";
+
 
                 info.appendChild(
                     left
@@ -229,6 +240,7 @@ async function loadProjects() {
                     description
                 );
 
+
                 article.appendChild(
                     preview
                 );
@@ -237,12 +249,14 @@ async function loadProjects() {
                     info
                 );
 
+
                 grid.appendChild(
                     article
                 );
 
             }
         );
+
 
         setupVideos();
 
@@ -253,15 +267,18 @@ async function loadProjects() {
         );
 
     }
+
 }
 
+
+/* =========================================================
+   YOUTUBE VIDEO PLAYER
+========================================================= */
 
 function setupVideos() {
 
     document
-        .querySelectorAll(
-            ".project-preview"
-        )
+        .querySelectorAll(".project-preview")
         .forEach(preview => {
 
             const video =
@@ -274,28 +291,29 @@ function setupVideos() {
                 return;
             }
 
+
             preview.addEventListener(
                 "click",
                 () => {
 
                     if (
-                        preview.querySelector(
-                            "iframe"
-                        )
+                        preview.querySelector("iframe")
                     ) {
                         return;
                     }
 
+
                     preview.innerHTML =
                         "";
 
+
                     const iframe =
-                        document.createElement(
-                            "iframe"
-                        );
+                        document.createElement("iframe");
+
 
                     iframe.src =
                         `https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1`;
+
 
                     iframe.style.position =
                         "absolute";
@@ -312,11 +330,14 @@ function setupVideos() {
                     iframe.style.border =
                         "0";
 
+
                     iframe.allow =
                         "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
 
+
                     iframe.allowFullscreen =
                         true;
+
 
                     preview.appendChild(
                         iframe
@@ -330,12 +351,18 @@ function setupVideos() {
 }
 
 
+/* =========================================================
+   LOAD DIARY
+========================================================= */
+
 async function loadDiary() {
 
     const diary =
-        document.getElementById(
-            "diaryList"
-        );
+        document.getElementById("diaryList");
+
+    if (!diary) {
+        return;
+    }
 
     try {
 
@@ -359,39 +386,81 @@ async function loadDiary() {
 
         diary.innerHTML = "";
 
+
         entries.forEach(entry => {
 
             const item =
-                document.createElement(
-                    "div"
-                );
+                document.createElement("div");
 
             item.className =
                 "diary-item";
 
-            item.innerHTML = `
 
-                <div class="diary-date">
-                    ${entry.date || ""}
-                </div>
+            const date =
+                document.createElement("div");
 
-                <div>
+            date.className =
+                "diary-date";
 
-                    <div class="diary-name">
-                        ${entry.title || "Untitled"}
-                    </div>
+            date.textContent =
+                entry.date || "";
 
-                    <div class="diary-description">
-                        ${entry.description || ""}
-                    </div>
 
-                </div>
+            const content =
+                document.createElement("div");
 
-                <div class="diary-arrow">
-                    ↗
-                </div>
 
-            `;
+            const title =
+                document.createElement("div");
+
+            title.className =
+                "diary-name";
+
+            title.textContent =
+                entry.title || "Untitled";
+
+
+            const description =
+                document.createElement("div");
+
+            description.className =
+                "diary-description";
+
+            description.textContent =
+                entry.description || "";
+
+
+            content.appendChild(
+                title
+            );
+
+            content.appendChild(
+                description
+            );
+
+
+            const arrow =
+                document.createElement("div");
+
+            arrow.className =
+                "diary-arrow";
+
+            arrow.textContent =
+                "↗";
+
+
+            item.appendChild(
+                date
+            );
+
+            item.appendChild(
+                content
+            );
+
+            item.appendChild(
+                arrow
+            );
+
 
             diary.appendChild(
                 item
@@ -406,8 +475,13 @@ async function loadDiary() {
         );
 
     }
+
 }
 
+
+/* =========================================================
+   START
+========================================================= */
 
 loadProjects();
 loadDiary();
