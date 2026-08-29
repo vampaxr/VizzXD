@@ -1,3 +1,5 @@
+Yep — style.css next. This is the CSS pulled out of the original index.html, unchanged in design.
+
 :root {
     --bg: #090909;
     --bg-soft: #101010;
@@ -40,17 +42,14 @@ body {
     color: #000;
 }
 
-
 /* =========================================================
    BACKGROUND
 ========================================================= */
 
 body::before {
     content: "";
-
     position: fixed;
     inset: 0;
-
     z-index: 1000;
 
     pointer-events: none;
@@ -60,7 +59,6 @@ body::before {
     background-image:
         url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.8'/%3E%3C/svg%3E");
 }
-
 
 /* =========================================================
    NAV
@@ -87,7 +85,6 @@ body::before {
 .logo {
     display: flex;
     align-items: center;
-
     gap: 11px;
 
     color: var(--text);
@@ -186,7 +183,6 @@ body::before {
     margin-right: 4px;
 }
 
-
 /* =========================================================
    HERO
 ========================================================= */
@@ -211,8 +207,8 @@ body::before {
     bottom: -11vw;
 
     font-size: clamp(280px, 40vw, 700px);
-
     font-weight: 800;
+
     line-height: .7;
 
     color: transparent;
@@ -335,7 +331,6 @@ body::before {
     background: var(--muted-2);
 }
 
-
 /* =========================================================
    FLOATING SHAPES
 ========================================================= */
@@ -387,7 +382,6 @@ body::before {
 
 }
 
-
 /* =========================================================
    SECTIONS
 ========================================================= */
@@ -400,7 +394,6 @@ body::before {
 .section-label {
     display: flex;
     align-items: center;
-
     gap: 14px;
 
     margin-bottom: 65px;
@@ -422,7 +415,6 @@ body::before {
 
     background: var(--accent);
 }
-
 
 /* =========================================================
    ABOUT
@@ -490,7 +482,6 @@ body::before {
 .about-tags {
     display: flex;
     flex-wrap: wrap;
-
     gap: 8px;
 
     margin-top: 45px;
@@ -525,7 +516,6 @@ body::before {
         translateY(-4px)
         rotate(-2deg);
 }
-
 
 /* =========================================================
    WORK
@@ -569,7 +559,6 @@ body::before {
     font-size: 9px;
 }
 
-
 /* =========================================================
    PROJECT GRID
 ========================================================= */
@@ -611,7 +600,6 @@ body::before {
 .project:nth-child(n+5) {
     grid-column: span 6;
 }
-
 
 /* =========================================================
    PROJECT PREVIEW
@@ -700,7 +688,6 @@ body::before {
         scale(1)
         rotate(0);
 }
-
 
 /* =========================================================
    PROJECT ART
@@ -820,7 +807,7 @@ body::before {
 
 @keyframes artFloat {
 
-    0%, 100% {
+    0%,100% {
         transform:
             translateY(0)
             scale(1);
@@ -845,7 +832,6 @@ body::before {
     }
 
 }
-
 
 /* =========================================================
    PROJECT INFO
@@ -884,7 +870,6 @@ body::before {
     font-family: var(--mono);
     font-size: 8px;
 }
-
 
 /* =========================================================
    DEV DIARY
@@ -1018,7 +1003,6 @@ body::before {
         translate(5px, -5px);
 }
 
-
 /* =========================================================
    CONTACT
 ========================================================= */
@@ -1068,14 +1052,12 @@ body::before {
 
     display: flex;
     align-items: center;
-
     gap: 12px;
 }
 
 .contact-link {
     display: inline-flex;
     align-items: center;
-
     gap: 12px;
 
     padding: 14px 19px;
@@ -1112,7 +1094,6 @@ body::before {
     color: #000;
 }
 
-
 /* =========================================================
    FOOTER
 ========================================================= */
@@ -1134,7 +1115,6 @@ footer {
     text-transform: uppercase;
 }
 
-
 /* =========================================================
    SCROLL REVEAL
 ========================================================= */
@@ -1153,7 +1133,6 @@ footer {
     opacity: 1;
     transform: translateY(0);
 }
-
 
 /* =========================================================
    MOBILE
@@ -1312,7 +1291,6 @@ footer {
     }
 
 }
-
 
 /* =========================================================
    REDUCED MOTION
