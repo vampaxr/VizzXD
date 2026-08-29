@@ -1,5 +1,3 @@
-Now script.js — this handles the scroll reveal, loading work.json / diary.json, and YouTube project videos.
-
 "use strict";
 
 /* =========================================================
@@ -26,7 +24,6 @@ revealElements.forEach((element) => {
     observer.observe(element);
 });
 
-
 /* =========================================================
    YOUTUBE ID
 ========================================================= */
@@ -42,7 +39,6 @@ function getYouTubeId(url) {
 
     return match ? match[1] : null;
 }
-
 
 /* =========================================================
    PROJECTS
@@ -138,12 +134,10 @@ async function loadProjects() {
         });
 
         setupVideos();
-
     } catch (error) {
         console.log("Using built in projects.");
     }
 }
-
 
 /* =========================================================
    YOUTUBE VIDEOS
@@ -153,7 +147,6 @@ function setupVideos() {
     document
         .querySelectorAll(".project-preview")
         .forEach((preview) => {
-
             const video = preview.dataset.video;
             const id = getYouTubeId(video);
 
@@ -162,7 +155,6 @@ function setupVideos() {
             }
 
             preview.addEventListener("click", () => {
-
                 if (preview.querySelector("iframe")) {
                     return;
                 }
@@ -189,7 +181,6 @@ function setupVideos() {
             });
         });
 }
-
 
 /* =========================================================
    DIARY
@@ -248,16 +239,10 @@ async function loadDiary() {
 
             diary.appendChild(item);
         });
-
     } catch (error) {
         console.log("Using built in diary.");
     }
 }
-
-
-/* =========================================================
-   START
-========================================================= */
 
 loadProjects();
 loadDiary();
