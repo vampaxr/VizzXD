@@ -1,175 +1,478 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VizzXD</title>
-  <meta name="description" content="VizzXD — events, plugins and projects.">
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>VizzXD</title> <link rel="icon" href="title.ping"> <link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet"> <link rel="stylesheet" href="style.css"> </head> <body> <header class="nav">
+<a href="#" class="logo">
+    <span class="logo-mark">V</span>
+    <span>VizzXD</span>
+</a>
 
-  <link rel="stylesheet" href="style.css">
-</head>
+<nav class="nav-links">
 
-<body>
+    <a href="#about">
+        <span class="nav-number">01</span>
+        about
+    </a>
 
-  <div class="noise"></div>
+    <a href="#work">
+        <span class="nav-number">02</span>
+        work
+    </a>
 
-  <header class="nav">
-    <a class="logo" href="#">VXD</a>
+    <a href="#diary">
+        <span class="nav-number">03</span>
+        diary
+    </a>
 
-    <nav>
-      <a href="#about">about</a>
-      <a href="#work">work</a>
-      <a href="#contact">contact</a>
-    </nav>
-  </header>
+    <a href="#contact">
+        contact
+    </a>
 
-  <main>
+</nav>
 
-    <section class="hero">
+</header> <main> <section class="hero">
+<div class="hero-number">01</div>
 
-      <div class="hero-top">
-        <span>VizzXD / 2026</span>
-        <span>events · plugins</span>
-      </div>
+<div class="hero-shape shape-one"></div>
+<div class="hero-shape shape-two"></div>
 
-      <div class="hero-main">
+<div class="hero-content">
 
-        <div class="side-text left">
-          <span>creative developer</span>
-          <span>01 — 03</span>
+    <div class="hero-small">
+        minecraft events · plugins · development
+    </div>
+
+    <h1 class="hero-title">
+
+        <span class="outline">Vizz</span>
+
+        <br>
+
+        <span class="accent">XD</span>
+        <span class="italic">.</span>
+
+    </h1>
+
+    <p class="hero-description">
+        I make Minecraft plugins and help create
+        events for servers. I like making new ideas
+        and turning them into things people can play
+        and enjoy.
+    </p>
+
+</div>
+
+<div class="hero-bottom">
+
+    <div>VIZZXD / 2026</div>
+
+    <div class="scroll">
+        <span class="scroll-line"></span>
+        scroll to explore
+    </div>
+
+    <div>minecraft developer</div>
+
+</div>
+
+</section> <section class="section about reveal" id="about">
+<div class="section-label">
+    01 / about me
+</div>
+
+<div class="about-layout">
+
+    <div class="about-side">
+
+        <div>VizzXD</div>
+
+        <br>
+
+        <div>
+            Minecraft Plugins<br>
+            Minecraft Events<br>
+            Server Development<br>
+            Custom Ideas
         </div>
 
-        <div class="title-wrap">
-          <div class="small-title">hello, i'm</div>
+    </div>
 
-          <h1>
-            <span>VIZZ</span><br>
-            <span class="yellow">XD</span>
-          </h1>
+    <div>
 
-          <div class="title-line"></div>
-
-          <p>
-            I make plugins and events<br>
-            that people actually remember.
-          </p>
-        </div>
-
-        <div class="side-text right">
-          <span>scroll to explore</span>
-          <span>↓</span>
-        </div>
-
-      </div>
-
-      <div class="hero-bottom">
-        <span>based online</span>
-        <span>available for projects</span>
-      </div>
-
-    </section>
-
-
-    <section class="about section" id="about">
-
-      <div class="section-number">01</div>
-
-      <div class="section-heading">
-        <span>about</span>
-        <h2>who is<br><em>VizzXD?</em></h2>
-      </div>
-
-      <div class="about-content">
-
-        <p class="big-copy">
-          I'm VizzXD and I make <strong>plugins, events</strong>
-          and other stuff for communities and servers.
-        </p>
-
-        <p>
-          Most of my projects start from a simple idea and then
-          get bigger while I work on them. I like making things
-          that feel different instead of just making another
-          copy of something that already exists.
-        </p>
-
-        <div class="about-details">
-          <div>
-            <span>01</span>
-            <p>Plugins</p>
-          </div>
-
-          <div>
-            <span>02</span>
-            <p>Events</p>
-          </div>
-
-          <div>
-            <span>03</span>
-            <p>Custom Ideas</p>
-          </div>
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <section class="work section" id="work">
-
-      <div class="section-number">02</div>
-
-      <div class="section-heading work-heading">
-        <span>selected work</span>
-        <h2>things i've<br><em>made.</em></h2>
-      </div>
-
-      <div class="projects" id="projects"></div>
-
-    </section>
-
-
-    <section class="contact section" id="contact">
-
-      <div class="section-number">03</div>
-
-      <div class="contact-inner">
-
-        <span class="contact-label">got an idea?</span>
-
-        <h2>
-          let's make<br>
-          <em>something.</em>
+        <h2 class="about-title">
+            I like making<br>
+            <em>things happen.</em>
         </h2>
 
-        <p>
-          Have an event or plugin idea?<br>
-          Send me a message and we can talk about it.
-        </p>
+        <div class="about-copy">
 
-        <div class="contact-links">
-          <a href="mailto:void.vsc@gmail.com">
-            email <span>↗</span>
-          </a>
+            <p>
+                I’m VizzXD and I work on Minecraft
+                plugins and events for servers.
+            </p>
 
-          <a href="https://discord.com/" target="_blank" rel="noopener">
-            discord <span>↗</span>
-          </a>
+            <p>
+                I like making things that give players
+                something new to do instead of just
+                making the same stuff everyone has.
+            </p>
+
+            <p>
+                A lot of my projects start as small ideas
+                and then turn into bigger projects.
+            </p>
+
         </div>
 
-      </div>
+        <div class="about-tags">
 
-    </section>
+            <div class="tag">MINECRAFT</div>
+            <div class="tag">PLUGINS</div>
+            <div class="tag">EVENTS</div>
+            <div class="tag">SERVERS</div>
+            <div class="tag">DEVELOPMENT</div>
 
-  </main>
+        </div>
+
+    </div>
+
+</div>
+
+</section> <section class="section work reveal" id="work">
+<div class="section-label">
+    02 / my work
+</div>
+
+<div class="work-heading">
+
+    <h2 class="work-title">
+        things<br>
+        <span>I made.</span>
+    </h2>
+
+    <div class="work-counter">
+        projects / 2026
+    </div>
+
+</div>
+
+<div class="project-grid" id="projectGrid">
+
+    <article class="project">
+
+        <div class="project-preview">
+
+            <div class="project-art">
+
+                <div class="art-grid"></div>
+                <div class="art-circle"></div>
+
+                <div class="art-text">
+                    EVENT
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="project-info">
+
+            <div>
+
+                <div class="project-index">001</div>
+
+                <div class="project-name">
+                    Minecraft Event
+                </div>
+
+            </div>
+
+            <div class="project-type">
+                A custom event made for
+                players to compete and have fun.
+            </div>
+
+        </div>
+
+    </article>
 
 
-  <footer>
-    <span>VIZZXD © 2026</span>
-    <span>made with way too much time</span>
-  </footer>
+    <article class="project">
 
-  <script src="script.js"></script>
+        <div class="project-preview">
 
-</body>
-</html>
+            <div class="project-art">
+
+                <div class="art-square"></div>
+                <div class="art-lines"></div>
+
+                <div class="art-text">
+                    PLUG
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="project-info">
+
+            <div>
+
+                <div class="project-index">002</div>
+
+                <div class="project-name">
+                    Server Plugin
+                </div>
+
+            </div>
+
+            <div class="project-type">
+                A custom plugin made to
+                add new features to a server.
+            </div>
+
+        </div>
+
+    </article>
+
+
+    <article class="project">
+
+        <div class="project-preview">
+
+            <div class="project-art">
+
+                <div class="art-grid"></div>
+
+                <div
+                    class="art-circle"
+                    style="
+                        width:25%;
+                        border-color:
+                        rgba(255,255,255,.25);
+                    ">
+                </div>
+
+                <div
+                    class="art-square"
+                    style="
+                        width:25%;
+                        animation-duration:8s;
+                    ">
+                </div>
+
+                <div class="art-text">
+                    SMP
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="project-info">
+
+            <div>
+
+                <div class="project-index">003</div>
+
+                <div class="project-name">
+                    SMP Project
+                </div>
+
+            </div>
+
+            <div class="project-type">
+                Custom features and ideas
+                made for a Minecraft SMP.
+            </div>
+
+        </div>
+
+    </article>
+
+
+    <article class="project">
+
+        <div class="project-preview">
+
+            <div class="project-art">
+
+                <div class="art-grid"></div>
+
+                <div
+                    class="art-lines"
+                    style="
+                        transform:
+                        rotate(25deg)
+                        skewY(-10deg);
+                    ">
+                </div>
+
+                <div
+                    class="art-circle"
+                    style="
+                        width:18%;
+                        border-color:
+                        var(--accent);
+                    ">
+                </div>
+
+                <div class="art-text">
+                    DEV
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="project-info">
+
+            <div>
+
+                <div class="project-index">004</div>
+
+                <div class="project-name">
+                    More Projects
+                </div>
+
+            </div>
+
+            <div class="project-type">
+                More plugins and projects
+                will be added here.
+            </div>
+
+        </div>
+
+    </article>
+
+</div>
+
+</section> <section class="section diary reveal" id="diary">
+<div class="section-label">
+    03 / dev diary
+</div>
+
+<div class="diary-header">
+
+    <h2 class="diary-title">
+        what I've<br>
+        been making.
+    </h2>
+
+    <div class="diary-note">
+        Updates about projects,
+        plugins and events I am working on.
+    </div>
+
+</div>
+
+<div class="diary-list" id="diaryList">
+
+    <div class="diary-item">
+
+        <div class="diary-date">
+            08.28.26
+        </div>
+
+        <div>
+
+            <div class="diary-name">
+                New portfolio
+            </div>
+
+            <div class="diary-description">
+                Made a new website for my projects.
+            </div>
+
+        </div>
+
+        <div class="diary-arrow">↗</div>
+
+    </div>
+
+
+    <div class="diary-item">
+
+        <div class="diary-date">
+            08.14.26
+        </div>
+
+        <div>
+
+            <div class="diary-name">
+                New event idea
+            </div>
+
+            <div class="diary-description">
+                Working on a new Minecraft event.
+            </div>
+
+        </div>
+
+        <div class="diary-arrow">↗</div>
+
+    </div>
+
+
+    <div class="diary-item">
+
+        <div class="diary-date">
+            07.30.26
+        </div>
+
+        <div>
+
+            <div class="diary-name">
+                Plugin work
+            </div>
+
+            <div class="diary-description">
+                Working on some new server features.
+            </div>
+
+        </div>
+
+        <div class="diary-arrow">↗</div>
+
+    </div>
+
+</div>
+
+</section> <section class="section contact reveal" id="contact">
+<div class="contact-eyebrow">
+    want to work together?
+</div>
+
+<h2 class="contact-title">
+    lets<br>
+    <span>talk.</span>
+</h2>
+
+<div class="contact-bottom">
+
+    <a
+        class="contact-link"
+        href="https://discord.com/"
+        target="_blank"
+        rel="noopener"
+    >
+        Discord
+        <span>↗</span>
+    </a>
+
+    <a
+        class="contact-link"
+        href="mailto:void.vsc@gmail.com"
+    >
+        Email
+        <span>↗</span>
+    </a>
+
+</div>
+
+</section> </main> <footer>
+<span>VizzXD © 2026</span>
+
+<span>Minecraft plugins & events</span>
+
+<span>still working</span>
+
+</footer> <script src="script.js"></script> </body> </html>
