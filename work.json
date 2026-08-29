@@ -1,18 +1,26 @@
 [
     {
         "title": "Minecraft Event",
-        "description": "A custom event made for players to compete and have fun."
+        "description": "A custom event made for players to compete and have fun.",
+        "image": "",
+        "video": ""
     },
     {
         "title": "Server Plugin",
-        "description": "A custom plugin made to add new features to a server."
+        "description": "A custom plugin made to add new features to a server.",
+        "image": "",
+        "video": ""
     },
     {
         "title": "SMP Project",
-        "description": "Custom features and ideas made for a Minecraft SMP."
+        "description": "Custom features and ideas made for a Minecraft SMP.",
+        "image": "",
+        "video": ""
     },
     {
         "title": "More Projects",
-        "description": "More plugins and projects will be added here."
+        "description": "More plugins and projects will be added here.",
+        "image": "",
+        "video": ""
     }
 ]
