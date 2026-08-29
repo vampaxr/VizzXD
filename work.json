@@ -1,22 +1,18 @@
 [
-  {
-    "title": "Custom Events",
-    "type": "Events",
-    "number": "01"
-  },
-  {
-    "title": "Server Plugins",
-    "type": "Plugins",
-    "number": "02"
-  },
-  {
-    "title": "Community Projects",
-    "type": "Custom",
-    "number": "03"
-  },
-  {
-    "title": "More Soon",
-    "type": "In Development",
-    "number": "04"
-  }
+    {
+        "title": "Minecraft Event",
+        "description": "A custom event made for players to compete and have fun."
+    },
+    {
+        "title": "Server Plugin",
+        "description": "A custom plugin made to add new features to a server."
+    },
+    {
+        "title": "SMP Project",
+        "description": "Custom features and ideas made for a Minecraft SMP."
+    },
+    {
+        "title": "More Projects",
+        "description": "More plugins and projects will be added here."
+    }
 ]
