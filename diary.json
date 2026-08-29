@@ -1,8 +1,17 @@
 [
     {
-        "title": "Project started",
-        "date": "August 2026",
-        "description": "Started working on a new Minecraft project.",
-        "video": ""
+        "date": "08.28.26",
+        "title": "New portfolio",
+        "description": "Made a new website for my projects."
+    },
+    {
+        "date": "08.14.26",
+        "title": "New event idea",
+        "description": "Working on a new Minecraft event."
+    },
+    {
+        "date": "07.30.26",
+        "title": "Plugin work",
+        "description": "Working on some new server features."
     }
 ]
