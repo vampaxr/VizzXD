@@ -1,223 +1,162 @@
-const grid = document.getElementById("projectGrid");
-const diaryToggle = document.getElementById("diaryToggle");
+const projectGrid = document.getElementById("projects");
 
-let workProjects = [];
-let diaryProjects = [];
-let showingDiary = false;
+const fallbackProjects = [
+  {
+    title: "Custom Events",
+    type: "Events",
+    number: "01"
+  },
+  {
+    title: "Server Plugins",
+    type: "Plugins",
+    number: "02"
+  },
+  {
+    title: "Community Projects",
+    type: "Custom",
+    number: "03"
+  },
+  {
+    title: "More Soon",
+    type: "In Development",
+    number: "04"
+  }
+];
 
 
-/* YOUTUBE */
+function createProject(project, index) {
 
-function getYouTubeId(url) {
-    if (!url) return null;
+  const card = document.createElement("article");
 
-    const match = url.match(
-        /(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([A-Za-z0-9_-]{11})/
+  card.className = "project";
+
+  const image = document.createElement("div");
+
+  image.className = "project-image";
+
+  image.dataset.number =
+    project.number || String(index + 1).padStart(2, "0");
+
+  if (project.image) {
+    image.style.backgroundImage =
+      `url("${project.image}")`;
+
+    image.style.backgroundSize = "cover";
+    image.style.backgroundPosition = "center";
+
+    image.style.setProperty(
+      "--project-image",
+      `url("${project.image}")`
     );
+  }
 
-    return match ? match[1] : null;
+  const info = document.createElement("div");
+
+  info.className = "project-info";
+
+  const text = document.createElement("div");
+
+  const title = document.createElement("div");
+
+  title.className = "project-title";
+
+  title.textContent =
+    project.title || "Untitled";
+
+  const type = document.createElement("div");
+
+  type.className = "project-type";
+
+  type.textContent =
+    project.type || "Project";
+
+  text.appendChild(title);
+  text.appendChild(type);
+
+  const arrow = document.createElement("div");
+
+  arrow.className = "project-arrow";
+
+  arrow.textContent = "↗";
+
+  info.appendChild(text);
+  info.appendChild(arrow);
+
+  card.appendChild(image);
+  card.appendChild(info);
+
+  return card;
 }
 
 
-/* PROJECTS */
+function renderProjects(projects) {
 
-function renderProjects(projects, diary = false) {
-    grid.innerHTML = "";
+  if (!projectGrid) return;
 
-    if (!projects.length) {
-        grid.innerHTML = `
-            <div class="loading">
-                Nothing here yet.
-            </div>
-        `;
-        return;
-    }
+  projectGrid.innerHTML = "";
 
-    projects.forEach((project, index) => {
-        const card = document.createElement("article");
-        card.className = "project";
-        card.style.animationDelay = `${index * 70}ms`;
-
-        const preview = document.createElement("div");
-        preview.className = "project-preview";
-
-        if (project.video) {
-            const id = getYouTubeId(project.video);
-
-            if (id) {
-                preview.style.setProperty(
-                    "--thumb",
-                    `url("https://i.ytimg.com/vi/${id}/hqdefault.jpg")`
-                );
-
-                preview.addEventListener("click", () => {
-                    if (preview.querySelector("iframe")) return;
-
-                    const iframe = document.createElement("iframe");
-
-                    iframe.src =
-                        `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
-
-                    iframe.title =
-                        project.title || "Project video";
-
-                    iframe.allow =
-                        "autoplay; encrypted-media; picture-in-picture";
-
-                    iframe.allowFullscreen = true;
-                    iframe.loading = "lazy";
-
-                    preview.appendChild(iframe);
-                });
-            } else {
-                preview.classList.add("no-video");
-            }
-        } else {
-            preview.classList.add("no-video");
-        }
-
-        const info = document.createElement("div");
-        info.className = "project-info";
-
-        const title = document.createElement("div");
-        title.className = "project-name";
-        title.textContent = project.title || "Untitled";
-
-        info.appendChild(title);
-
-        if (diary && project.date) {
-            const date = document.createElement("div");
-            date.className = "diary-date";
-            date.textContent = project.date;
-            info.appendChild(date);
-        }
-
-        if (project.description) {
-            const description = document.createElement("div");
-            description.className = "project-type";
-            description.textContent = project.description;
-            info.appendChild(description);
-        }
-
-        card.appendChild(preview);
-        card.appendChild(info);
-        grid.appendChild(card);
-    });
-}
-
-
-/* LOAD JSON */
-
-async function loadJSON(file) {
-    const response = await fetch(file);
-
-    if (!response.ok) {
-        throw new Error(`Could not load ${file}`);
-    }
-
-    const data = await response.json();
-
-    return Array.isArray(data) ? data : [];
+  projects.forEach((project, index) => {
+    projectGrid.appendChild(
+      createProject(project, index)
+    );
+  });
 }
 
 
 async function loadProjects() {
-    try {
-        workProjects = await loadJSON("work.json");
-    } catch (error) {
-        console.error(error);
-        workProjects = [];
+
+  try {
+
+    const response =
+      await fetch("work.json");
+
+    if (!response.ok) {
+      throw new Error("work.json not found");
     }
 
-    try {
-        diaryProjects = await loadJSON("diary.json");
-    } catch (error) {
-        console.error(error);
-        diaryProjects = [];
+    const projects =
+      await response.json();
+
+    if (!Array.isArray(projects) || !projects.length) {
+      throw new Error("No projects");
     }
 
-    renderProjects(workProjects);
+    renderProjects(projects);
+
+  } catch (error) {
+
+    console.log(
+      "Using default projects:",
+      error.message
+    );
+
+    renderProjects(
+      fallbackProjects
+    );
+  }
 }
 
 
-/* DIARY */
-
-function updateDiaryButton() {
-    const text = diaryToggle.querySelector("span");
-    const arrow = diaryToggle.querySelector("b");
-
-    if (showingDiary) {
-        text.textContent = "Back to my work";
-        arrow.textContent = "←";
-    } else {
-        text.textContent = "View dev diary";
-        arrow.textContent = "→";
-    }
-}
-
-
-function toggleDiary() {
-    showingDiary = !showingDiary;
-
-    grid.classList.add("fade-out");
-
-    setTimeout(() => {
-        renderProjects(
-            showingDiary ? diaryProjects : workProjects,
-            showingDiary
-        );
-
-        updateDiaryButton();
-        grid.classList.remove("fade-out");
-    }, 220);
-}
-
-
-diaryToggle.addEventListener("click", toggleDiary);
-
-
-/* NAV */
-
-document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener("click", event => {
-        const target = document.querySelector(
-            link.getAttribute("href")
-        );
-
-        if (!target) return;
-
-        event.preventDefault();
-
-        target.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
-    });
-});
-
-
-/* HEADER */
-
-const header = document.querySelector(".header");
-
-let previousScroll = 0;
-
-window.addEventListener("scroll", () => {
-    const currentScroll = window.scrollY;
-
-    if (currentScroll > 40) {
-        header.style.borderBottomColor =
-            "rgba(255,255,255,.07)";
-    } else {
-        header.style.borderBottomColor =
-            "transparent";
-    }
-
-    previousScroll = currentScroll;
-}, { passive: true });
-
-
-/* START */
-
-updateDiaryButton();
 loadProjects();
+
+
+/* SMALL SCROLL EFFECT */
+
+const heroTitle =
+  document.querySelector(".title-wrap");
+
+window.addEventListener(
+  "scroll",
+  () => {
+
+    if (!heroTitle) return;
+
+    const amount =
+      Math.min(window.scrollY * .12, 80);
+
+    heroTitle.style.transform =
+      `translateY(${amount}px)`;
+
+  },
+  { passive: true }
+);
