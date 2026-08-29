@@ -1,1 +1,12 @@
-
+[
+    {
+        "title": "Your Event",
+        "description": "A Minecraft event with custom mechanics and features.",
+        "video": ""
+    },
+    {
+        "title": "Your Plugin",
+        "description": "A plugin made to add new features to a Minecraft server.",
+        "video": ""
+    }
+]
